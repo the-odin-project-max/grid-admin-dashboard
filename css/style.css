@@ -16,6 +16,7 @@ ul {
 	grid-template-columns: 1fr 4fr 1fr;
 	grid-template-rows: 1fr 4fr 2fr;
 }
+
 /* top */
 .header {
 	grid-row: 1 / 2;
@@ -26,13 +27,14 @@ ul {
 
 	align-items: center;
 }
+
 .search {
 	grid-row: 1 / 2;
 	grid-column: 1 / 2;
 	padding-left: 30px;
 }
 
-div.search > input[type=text] {
+div.search>input[type=text] {
 	width: 80%;
 	padding: 8px 20px;
 	margin: 8px 0;
@@ -43,7 +45,7 @@ div.search > input[type=text] {
 	border-radius: 20px;
 }
 
-div.search > input[type=text]:focus {
+div.search>input[type=text]:focus {
 	outline: none;
 	border-bottom: 2px solid #f1f1f1;
 	background-color: #f1f1f1;
@@ -52,7 +54,7 @@ div.search > input[type=text]:focus {
 .top-nav {
 	grid-row: 1 / 2;
 	grid-column: 2 / 3;
-	
+
 	display: flex;
 	flex-direction: row;
 }
@@ -68,6 +70,7 @@ div.search > input[type=text]:focus {
 
 	padding: 0px 30px 0px 30px;
 }
+
 .actions-left {
 	display: flex;
 	flex-direction: row;
@@ -84,12 +87,12 @@ div.search > input[type=text]:focus {
 	background-color: yellow;
 }
 
-.actions-left > .name {
+.actions-left>.name {
 	height: fit-content;
 	font-weight: bold;
 }
 
-.actions > ul {
+.actions>ul {
 	display: flex;
 	flex-direction: row;
 
@@ -98,7 +101,8 @@ div.search > input[type=text]:focus {
 	padding: 0;
 	flex-wrap: wrap;
 }
-.actions > ul > li {
+
+.actions>ul>li {
 	background-color: cornflowerblue;
 	border-radius: 25px;
 	height: 35px;
@@ -132,11 +136,11 @@ div.search > input[type=text]:focus {
 	font-size: x-large;
 }
 
-.sidebar-section > ul {
+.sidebar-section>ul {
 	padding: 0px;
 }
 
-.sidebar-section > ul > li {
+.sidebar-section>ul>li {
 	margin: 15px 0px 15px 0px;
 }
 
@@ -165,29 +169,35 @@ div.search > input[type=text]:focus {
 	color: grey;
 }
 
-.project-icons > ul {
+.project-icons>ul {
 	display: flex;
 	flex-direction: row;
 }
 
-.trending, .announcements, .content {
+.trending,
+.announcements,
+.content {
 	background-color: lightgray;
 }
+
 /* Right */
 .announcements {
 	grid-row: 2 / 3;
 	grid-column: 3 / 4;
 }
 
-.announcements-list {
+.announcements-list, .trending-list {
 	background-color: #f1f1f1;
 	border-radius: 10px;
 
 	padding: 15px;
 }
 
-.announcement {
-	border-top: 3px dashed black;
+.announcement:not(:last-child)::after, .trending-item:not(:last-child)::after {
+	display: block;
+	border-bottom: 1px dotted #ccc;
+	margin-bottom: 20px;
+	content: "";
 }
 
 .announcement-title {
@@ -198,7 +208,32 @@ div.search > input[type=text]:focus {
 	color: grey;
 }
 
+
 .trending {
 	grid-row: 3 / 4;
 	grid-column: 3 / 4;
+}
+
+.trending-list {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.trending-item {
+	display: flex;
+	flex-direction: row;
+	gap: 10px;
+}
+
+.trending-item-avatar {
+	height: 50px;
+	width: 50px;
+	border-radius: 25px;
+	background-color: blue;
+}
+
+.trending-item-infos > p {
+	height: 25px;
+	margin: 2px;
 }
